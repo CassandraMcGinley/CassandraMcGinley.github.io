@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassandra McGinley | Astronomy & Astrophysics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+                color: #e0e0e0;
+            }
+        }
+        
+        header {
+            background: #fff;
+            border-bottom: 2px solid #e0e0e0;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: #242424;
+                border-bottom-color: #404040;
+            }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .subtitle {
+                color: #aaa;
+            }
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .contact-info a:hover {
+            border-bottom-color: #0066cc;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .contact-info a {
+                color: #66b3ff;
+            }
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #0066cc;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        nav a:hover {
+            border-bottom-color: #0066cc;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            nav a {
+                color: #66b3ff;
+            }
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            h2 {
+                border-bottom-color: #404040;
+            }
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .research-interests {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .research-interests {
+                background: #2a2a2a;
+                border-left-color: #66b3ff;
+            }
+        }
+        
+        .publication-item,
+        .poster-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .publication-item,
+            .poster-item {
+                border-bottom-color: #404040;
+            }
+        }
+        
+        .publication-item:last-child,
+        .poster-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.25rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .publication-title {
+                color: #fff;
+            }
+        }
+        
+        .publication-meta {
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .publication-meta {
+                color: #aaa;
+            }
+        }
+        
+        .status {
+            display: inline-block;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            background: #e8f4f8;
+            color: #005a7a;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .status {
+                background: #1a4d5e;
+                color: #7dd3f0;
+            }
+        }
+        
+        .poster-year {
+            color: #0066cc;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .poster-year {
+                color: #66b3ff;
+            }
+        }
+        
+        .poster-title {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .poster-title a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .poster-title a:hover {
+            border-bottom-color: #0066cc;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .poster-title {
+                color: #fff;
+            }
+            
+            .poster-title a {
+                color: #66b3ff;
+            }
+            
+            .poster-title a:hover {
+                border-bottom-color: #66b3ff;
+            }
+        }
+        
+        .poster-details {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+        
+        .poster-details em {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .poster-details a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .poster-details a:hover {
+            border-bottom-color: #0066cc;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .poster-details {
+                color: #aaa;
+            }
+            
+            .poster-details em {
+                color: #777;
+            }
+            
+            .poster-details a {
+                color: #66b3ff;
+            }
+            
+            .poster-details a:hover {
+                border-bottom-color: #66b3ff;
+            }
+        }
+        
+        .action-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #0052a3;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .btn {
+                background: #66b3ff;
+                color: #000;
+            }
+            
+            .btn:hover {
+                background: #99c9ff;
+            }
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #0066cc;
+            color: #0066cc;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f7ff;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .btn-secondary {
+                border-color: #66b3ff;
+                color: #66b3ff;
+            }
+            
+            .btn-secondary:hover {
+                background: #1a3a52;
+            }
+        }
+        
+        footer {
+            border-top: 2px solid #e0e0e0;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            footer {
+                border-top-color: #404040;
+                color: #aaa;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cassandra McGinley</h1>
+            <p class="subtitle">Honors Astronomy and Astrophysics Student</p>
+            
+            <div class="contact-info">
+                <span>📍 Daytona Beach, FL</span>
+                <a href="mailto:cassandramcginley@outlook.com">cassandramcginley@outlook.com</a>
+                <a href="https://github.com/CassandraMcGinley" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/cassandramcginley" target="_blank">LinkedIn</a>
+            </div>
+            
+            <nav>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#posters">Presentations</a>
+                <a href="#cv">CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p>I am a senior at Embry-Riddle Aeronautical University pursuing a B.S. in Astronomy and Astrophysics with a minor in Applied Mathematics. My research focuses on understanding the universe through observational and computational approaches, with particular interests in cosmology, galaxy evolution, and stellar dynamics.</p>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <p>Experimental and observational cosmology • Early-universe physics • Dark matter and dark energy • Extragalactic structure and evolution • Computational astrophysics</p>
+            </div>
+            
+            <h3>Current Projects</h3>
+            
+            <h4>Galaxy Structure Analysis with JWST (ERAU)</h4>
+            <p><strong>Advisor:</strong> Dr. Bililign Dullo | <strong>Timeline:</strong> April 2025 – Present</p>
+            <p>Conducting photometric and structural analysis of early-type galaxies using JWST data. Generated one- and two-dimensional brightness profiles, model residuals, and parameter fits for NGC 4406 using Photutils and Imfit software.</p>
+            
+            <h4>Stellar Gyrochronology with TESS (ERAU)</h4>
+            <p><strong>Advisor:</strong> Dr. Terry D. Oswalt | <strong>Timeline:</strong> August 2023 – Present</p>
+            <p>Developed Python algorithms using synchrosqueezed wavelet methods to analyze TESS light curves and identify rotation frequencies in wide-binary stars. Investigated relationships between stellar activity, rotation period, and age.</p>
+            
+            <h4>Observational Astronomy: Messier 51 Hα Emission (ERAU)</h4>
+            <p><strong>Advisor:</strong> Dr. Ted von-Hippel | <strong>Timeline:</strong> January 2026 – April 2026</p>
+            <p>Observed Messier 51 using the ERAU 1-meter telescope, reducing and analyzing 60+ hours of imaging data to measure radial trends in Hα emission from H II regions.</p>
+            
+            <h4>Radio Neutrino Observatory (RNO-G) Analysis (University of Kansas)</h4>
+            <p><strong>Advisor:</strong> Dr. David Z. Besson | <strong>Timeline:</strong> May 2026 – Present</p>
+            <p>Analyzing trigger-time data from RNO-G stations to characterize inter-station timing delays and reconstruct candidate source directions using timing coincidence methods.</p>
+            
+            <h4>Pellets at Columbia (PAC) Test Stand Diagnostics (Columbia University)</h4>
+            <p><strong>Advisor:</strong> Dr. Carlos Paz-Soldan | <strong>Timeline:</strong> June 2025 – Present</p>
+            <p>Designed and operated diagnostic systems for the PAC fusion technology test stand, including camera, microwave cavity systems, and pellet tracking. Developed Python scripts to calculate cryogenic ice pellet masses from oscilloscope data. Independently operated and maintained the test stand, diagnosing and repairing vacuum leaks, hardware malfunctions, and electronic circuitry. Analyzed pellet deflection angles to prepare for e-beam ablation experiments. Invited to continue as a paid remote research assistant during the academic year.</p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications & Manuscripts</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">Linking Stellar Parameters with Activity of Wide Binaries with TESS</div>
+                <div class="publication-meta">McGinley, C., Oswalt, T. D., Lares-Martiz, M., 2026</div>
+                <div class="publication-meta">Research Notes of the American Astronomical Society</div>
+                <span class="status">In Preparation</span>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">The Depleted Core of Early-type Galaxies with JWST</div>
+                <div class="publication-meta">Dullo, B., Creviston, E., Stanley, M., Krauss, S., McGinley, C., et al., 2026</div>
+                <div class="publication-meta">Astrophysical Journal</div>
+                <span class="status">In Preparation</span>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Radial Distribution of H II Region Relative Intensities in the M51 System</div>
+                <div class="publication-meta">McGinley, C., Creviston, E., 2026</div>
+                <div class="publication-meta">Embry-Riddle Aquilla Observatory Journal</div>
+                <span class="status">In Preparation</span>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Twilight and Dark Sky Flat Calibration Analysis of ERAU 1-meter Telescope</div>
+                <div class="publication-meta">McGinley, C., Wyckoff, E., Desrochers, G., Creviston, E., 2026</div>
+                <div class="publication-meta">Embry-Riddle Aquilla Observatory Journal</div>
+                <span class="status">In Preparation</span>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Title TBD</div>
+                <div class="publication-meta">Lares-Martiz, M., Oswalt, T., Becker, J., McGinley, C., 2026</div>
+                <div class="publication-meta">Astrophysical Journal</div>
+                <span class="status">In Preparation</span>
+            </div>
+        </section>
+
+        <section id="posters">
+            <h2>Presentations & Posters</h2>
+            
+            <div class="poster-item">
+                <div class="poster-year">May 2026</div>
+                <div class="poster-title"><a href="posters/PAC_Cryogenic_Ablation_ANS_2026_pdf.pdf" target="_blank">Measurement of Cryogenic Ablation Rate and Multi-Species Density</a></div>
+                <div class="poster-details">American Nuclear Society (ANS) Technology of Fusion Energy (TOFE) 2026 Conference • Co-Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">November 2025</div>
+                <div class="poster-title"><a href="posters/PAC_Diagnostics_APS_2025_pdf.pdf" target="_blank">Diagnostics and Operation of the Pellets at Columbia Test Stand</a></div>
+                <div class="poster-details">APS-DPP 67th Annual Meeting • Main Presenter and Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">November 2025</div>
+                <div class="poster-title"><a href="posters/PAC_Automation_APS_2025_pdf.pdf" target="_blank">Initial Operation and Automation of Pellet Injection Test Stand</a></div>
+                <div class="poster-details">APS-DPP 67th Annual Meeting • Co-Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">August 2025</div>
+                <div class="poster-title"><a href="posters/PAC_Diagnostics_Columbia_2025_pdf.pdf" target="_blank">Application of Diagnostic Systems in the Pellets at Columbia Test Stand</a></div>
+                <div class="poster-details">Columbia University Summer Symposium • Main Presenter and Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">March 2025</div>
+                <div class="poster-title"><a href="posters/Stellar_Flare_Activity_FAS_2025.pdf" target="_blank">Analyzing Relationships Between Stellar Parameters and Stellar Flare Activity</a></div>
+                <div class="poster-details">Florida Academy of Sciences 88th Annual Meeting • Main Presenter and Author • Best Physical Sciences Poster</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">January 2025</div>
+                <div class="poster-title">Linking Stellar Parameters with Activity of Wide Binaries with TESS</div>
+                <div class="poster-details">245th Meeting of the American Astronomical Society • Main Presenter and Author • <em>Virtual iPoster — <a href="https://aas.org" target="_blank">view at AAS website</a> or request PDF</em></div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">November 2025</div>
+                <div class="poster-title"><a href="posters/sustainability_2025.pdf" target="_blank">Light Pollution at Embry-Riddle: Effects and Solutions for Our Grey Skies</a></div>
+                <div class="poster-details">ERAU Sustainability Conference 2025 • Main Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">April 2025</div>
+                <div class="poster-title"><a href="posters/Cassandra_McGinley_Discovery_Day_2025.pdf" target="_blank">Analyzing the Relationship Between Stellar Parameters and Flare Activity with TESS and Kepler</a></div>
+                <div class="poster-details">ERAU Discovery Day 2025 • Main Presenter and Author</div>
+            </div>
+            
+            <div class="poster-item">
+                <div class="poster-year">August 2026</div>
+                <div class="poster-title">Radio Neutrino Observatory Analysis: Inter-Station Coincidence Studies</div>
+                <div class="poster-details">University of Kansas REU Symposium • <em>Coming end of summer</em></div>
+            </div>
+        </section>
+
+        <section id="cv">
+            <h2>Curriculum Vitae</h2>
+            <p>Download my full CV for complete details on education, awards, and additional research experience.</p>
+            <div class="action-links">
+                <a href="CV_Cassandra_McGinley.pdf" class="btn">Download CV (PDF)</a>
+                <a href="https://github.com/CassandraMcGinley" class="btn btn-secondary">View GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Cassandra McGinley. Last updated July 2026.</p>
+        </div>
+    </footer>
+</body>
+</html>
